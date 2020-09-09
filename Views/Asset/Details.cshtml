@@ -1,0 +1,186 @@
+﻿@model BackstageMusic.Models.Asset
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Asset</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Artist.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artist.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssetType.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssetType.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Language.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Language.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDetail.id_orderdetail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDetail.id_orderdetail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.asset_guid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.asset_guid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.copy_holder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.copy_holder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.copy_year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.copy_year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image_version)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image_version)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.upc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.upc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.is_explicit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_explicit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.is_debut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_debut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.received_on)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.received_on)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.approved_on)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.approved_on)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.released_on)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.released_on)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rejected_on)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rejected_on)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.created_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.created_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updated_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updated_at)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_asset }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

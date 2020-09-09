@@ -1,0 +1,122 @@
+﻿@model IEnumerable<BackstageMusic.Models.User>
+
+@{
+    ViewBag.Title = "Listado de usuarios";
+    ViewBag.Description = "Usuarios";
+}
+<div class="row">
+    <div class="col">
+        <section class="card">
+            <header class="card-header">
+                <div class="card-actions">
+                    <a href="/User/Create"><button type="button" class="btn btn-primary btn-sm">Nuevo</button></a>
+                </div>
+                <h2 class="card-title">@ViewBag.Title</h2>
+            </header>
+            <div class="card-body">
+                <table class="table table-bordered table-striped mb-0" id="datatable-tabletools">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Country.name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UserType.name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.username)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.password)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.is_suscribed)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.is_confirmed)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.primary_address)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.secondary_address)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.city)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.zipcode)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.voucher)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.active)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.created_at)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.updated_at)
+                            </th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Country.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UserType.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.username)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.password)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.is_suscribed)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.is_confirmed)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.primary_address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.secondary_address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.city)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.zipcode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.voucher)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.active)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.created_at)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.updated_at)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.id_user }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.id_user })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>

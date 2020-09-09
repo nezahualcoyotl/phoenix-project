@@ -1,0 +1,82 @@
+﻿@model BackstageMusic.Models.Payment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Payment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.voucher)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.voucher)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.transaction_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.transaction_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.payment_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.payment_status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.payment_amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.payment_amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.currency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.currency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.created_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.created_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updated_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updated_at)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_payment }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

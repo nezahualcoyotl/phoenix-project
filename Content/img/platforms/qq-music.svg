@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>qq-music</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F8D721" offset="100%"></stop>
+            <stop stop-color="#FBC10A" offset="0.797055636%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="qq-music" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="QQ-Music" transform="translate(7.000000, 5.000000)">
+            <circle id="Oval" fill="url(#linearGradient-1)" cx="42.9473684" cy="47.0526316" r="42.9473684"></circle>
+            <path d="M27.7823808,18.9214638 L50.1269531,50.5765831 C28.985403,45.6704359 15.3626645,68.1565584 28.7571957,78.8841488 C47.126754,93.5962052 70.6319901,72.1893503 59.6268503,56.8377878 L39.3423109,21.5788446 C55.2236842,20.5839844 61.4331826,13.3925781 57.9708059,0.00462582237 C53.849051,3.54553865 50.5920025,5.51675576 43.7122517,6.35495477 C36.8325009,7.19315378 30.4104646,11.7144326 28.2064145,14.3560855 C26.7370477,16.1171875 26.5957031,17.6389803 27.7823808,18.9214638 Z" id="Path" fill="#00AD56"></path>
+        </g>
+    </g>
+</svg>

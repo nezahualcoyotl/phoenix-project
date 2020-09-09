@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45 (43475) - http://www.bohemiancoding.com/sketch -->
+    <title>7digital</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M0.0332431431,25.5300112 L11.62968,0.126829818 L34.5096346,0.126829818 C34.5096346,0.586091067 34.4127959,1.02331067 34.2361014,1.418615 L11.6328145,50.9270499 L0.0332431431,25.5300112 Z" id="path-1"></path>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="97.9312819%" id="linearGradient-3">
+            <stop stop-color="#024EA2" offset="0%"></stop>
+            <stop stop-color="#0FA2A1" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="default---square-logos" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="7digital">
+            <g id="Group" transform="translate(26.000000, 15.000000)">
+                <path d="M0,25.4205257 L0,0.0169829101 L32.7517228,0.0169829101 C34.026525,0.0169829101 35.1253554,0.768567016 35.6294227,1.85294389 L45.8018245,24.1345219 C45.9759896,24.5276582 46.072467,24.9630711 46.072467,25.4205257 L0,25.4205257" id="Fill-1" fill="#17448A"></path>
+                <g id="Group-13" transform="translate(11.562832, 25.293696)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-12"></g>
+                    <polygon id="Fill-11" fill="url(#linearGradient-3)" opacity="0.799999952" mask="url(#mask-2)" points="-11.5628324 50.9270499 230.608407 50.9270499 230.608407 -25.2767129 -11.5628324 -25.2767129"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

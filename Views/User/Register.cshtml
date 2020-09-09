@@ -1,0 +1,121 @@
+﻿@model BackstageMusic.Models.User
+
+@{
+    ViewBag.Title = "Create";
+    Layout = null;
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <head>
+        <!-- Basic -->
+        <meta charset="UTF-8">
+
+        <meta name="keywords" content="HTML5 Admin Template" />
+        <meta name="description" content="Porto Admin - Responsive HTML5 Template">
+        <meta name="author" content="okler.net">
+
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <!-- Web Fonts  -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+        @Styles.Render("~/vendor/css")
+        @Styles.Render("~/theme/css")
+        @Scripts.Render("~/modernizr/js")
+
+    </head>
+
+    <section class="body-sign">
+        <div class="center-sign">
+            <a href="/" class="logo float-left">
+                <img src="~/Content/img/backstageLogo.png" height="54" alt="Backstage Logo" />
+            </a>
+
+            <div class="panel card-sign">
+                <div class="card-title-sign mt-3 text-right">
+                    <h2 class="title text-uppercase font-weight-bold m-0"><i class="fas fa-user mr-1"></i> REGISTRO</h2>
+                </div>
+                <div class="card-body">
+                    <div class="form-group mb-3">
+
+                        <div class="form-group mb-3">
+                            <label>Usuario <span class="required">*</span></label>
+                            @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control", placeholder = "Correo electrónico" } })
+                            @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group mb-0">
+                            <div class="row">
+                                <div class="col-sm-6 mb-3">
+                                    <label>Contraseña <span class="required">*</span></label>
+                                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", type = "password", placeholder = "Contraseña" } })
+                                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <label>Confirmación de contraseña <span class="required">*</span></label>
+                                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", type = "password", placeholder = "Confirmar contraseña" } })
+                                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group mb-0" id="errorMsg"></div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-0">
+                            <div class="form-group mb-0">
+                                <div class="row">
+                                    <div class="col-sm-6 mb-3">
+                                        <label>Registrarme como: <span class="required">*</span></label>
+                                        @{
+                                            var userTypes = new SelectList(new[]
+                                            {
+                                                new SelectListItem { Text = "Artista", Value = "2", Selected = true },
+                                                new SelectListItem { Text = "Manager", Value = "3"},
+                                                new SelectListItem { Text = "Sello", Value = "4"},
+                                            }, "Value", "Text");
+                                        }
+
+                                        @Html.DropDownList("id_usertype", userTypes, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.id_usertype, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-6 mb-3">
+                                        <label>Pais de origen: <span class="required">*</span></label>
+                                        @Html.DropDownList("id_country", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.id_country, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        &nbsp;
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="checkbox-custom checkbox-default">
+                                    <input name="terms" id="terms" type="checkbox" required />
+                                    <label for="terms" class="small">Estoy de acuerdo con los <a href="https://www.google.com/">usos y terminos</a></label>
+                                </div>
+                                <div class="checkbox-custom checkbox-default">
+                                    <input name="subscribed" id="subscribed" type="checkbox" required />
+                                    <label for="subscribed" class="small">Deseo recibir información de Backstage</label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 text-right">
+                                <input type="submit" value="Register" class="btn btn-primary mt-2" />
+                            </div>
+                        </div>
+                        &nbsp;
+                        <p class="text-center">¿Ya tienes cuenta? <a href="@Url.Action("Login", "User")">¡Ingresar!</a></p>
+                    </div>
+                </div>
+
+                <p class="text-center text-muted mt-3 mb-3">&copy; Copyright 2019. All Rights Reserved.</p>
+            </div>
+         </div>
+    </section>
+}
+@Scripts.Render("~/vendor/js")
+@Scripts.Render("~/theme/js")

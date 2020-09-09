@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>youtube-music</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="youtube-music" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(10.000000, 10.000000)" fill-rule="nonzero">
+            <circle id="XMLID_791_" fill="#FF0000" cx="40" cy="40" r="40"></circle>
+            <path d="M40,20.9272727 C50.5181818,20.9272727 59.0727273,29.4818182 59.0727273,40 C59.0727273,50.5181818 50.5181818,59.0727273 40,59.0727273 C29.4818182,59.0727273 20.9272727,50.5181818 20.9272727,40 C20.9272727,29.4818182 29.4818182,20.9272727 40,20.9272727 Z M40,19.0909091 C28.45,19.0909091 19.0909091,28.45 19.0909091,40 C19.0909091,51.55 28.45,60.9090909 40,60.9090909 C51.55,60.9090909 60.9090909,51.55 60.9090909,40 C60.9090909,28.45 51.55,19.0909091 40,19.0909091 Z" id="XMLID_42_" fill="#FFFFFF"></path>
+            <polygon id="XMLID_274_" fill="#FFFFFF" points="32.7272727 50.4545455 50.4545455 39.5454545 32.7272727 29.5454545"></polygon>
+        </g>
+    </g>
+</svg>

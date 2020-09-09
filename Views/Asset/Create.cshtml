@@ -1,0 +1,458 @@
+﻿@model BackstageMusic.Models.Asset
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+        <div class="row">
+            <div class="col">
+                <section class="card form-wizard" id="w4">
+                    <header class="card-header">
+
+                        <h2 class="card-title">Creación del Lanzamiento </h2>
+                    </header>
+                    <div class="card-body">
+                        <div class="wizard-progress wizard-progress-lg">
+                            <div class="steps-progress">
+                                <div class="progress-indicator"></div>
+                            </div>
+                            <ul class="nav wizard-steps">
+                                <li class="nav-item active" id="w4-menulanz">
+                                    <a class="nav-link" href="#w4-lanzamiento" data-toggle="tab"><span>1</span>DETALLES DEL LANZAMIENTO</a>
+                                </li>
+                                <li class="nav-item" id="w4-menumusic">
+                                    <a class="nav-link" href="#w4-musica" data-toggle="tab"><span>2</span>LISTA DE TRACKS</a>
+                                </li>
+                                <li class="nav-item" id="w4-menuterr">
+                                    <a class="nav-link" href="#w4-fechaterrilanz" data-toggle="tab"><span>3</span>FECHA Y TERRITORIOS</a>
+                                </li>
+                                <li class="nav-item" id="w4-menuconfirm">
+                                    <a class="nav-link" href="#w4-confirm" data-toggle="tab"><span>4</span>TIENDAS DISPONIBLES</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <form class="form-horizontal p-3" novalidate="novalidate">
+                            <div class="tab-content">
+                                <div id="w4-lanzamiento" class="tab-pane active">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                            <h4 class="title font-weight-bold">Información</h4>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <input type="hidden" id="w4-id" nae="w4-id" />
+                                                    <label class="control-label">Single <span class="required">*</span> <span id="stpago" class="text-success font-weight-semibold"></span></label>
+                                                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", type = "text", data_role = "tagsinput", data_tag_class = "badge badge-primary" }})
+                                                    @Html.ValidationMessageFor(model => model.id_assettype, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="control-label">Derechos de Copyright (Publishing) <span class="required">*</span></label>
+                                                    @Html.EditorFor(model => model.copy_holder, new { htmlAttributes = new { @class = "form-control", type = "text", data_role = "tagsinput", data_tag_class = "badge badge-primary" } })
+                                                    @Html.ValidationMessageFor(model => model.copy_holder, "", new { @class = "text-danger" })
+
+                                                </div>
+                                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="control-label">Año <span class="required">*</span></label>
+                                                    <div data-plugin-spinner data-plugin-options='{ "value":2019, "min": 1969, "max": 2022 }'>
+                                                        <div class="input-group form-control-small">
+                                                            <input type="text" class="spinner-input form-control" readonly="readonly" maxlength="3">
+                                                            <div class="spinner-buttons input-group-btn btn-group-vertical">
+                                                                <button type="button" class="btn spinner-up btn-xs btn-default">
+                                                                    <i class="fas fa-angle-up"></i>
+                                                                </button>
+                                                                <button type="button" class="btn spinner-down btn-xs btn-default">
+                                                                    <i class="fas fa-angle-down"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @Html.EditorFor(model => model.copy_year, new { htmlAttributes = new { @class = "form-control", type = "hidden", id = "copy_year" } })
+                                                    @Html.ValidationMessageFor(model => model.copy_year, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <label class="control-label">Record Label <span class="required">*</span></label>
+                                                    @Html.DropDownList("id_label", null, htmlAttributes: new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <label class="control-label">
+                                                        Artista principal <span class="required">*</span>&nbsp;
+                                                    </label>
+                                                    @Html.DropDownList("id_artist", null, htmlAttributes: new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.id_artist, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-10">
+                                                    <label class="control-label">Artista(s) secundario(s)</label><br />
+                                                    <select id="w4-artistas2" name="artistas2" disable multiple data-plugin-options='{ "maxHeight": 200 }' data-plugin-selectTwo class="form-control populate">
+                                                    </select>
+                                                </div>
+                                                <div class="col-1">
+                                                    <label class="control-label">&nbsp;</label>
+                                                    <a href="#artista-form" class="popup-with-form" tabindex="-1">
+                                                        <i class="icons icon-plus" style="font-size:35px;"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                            <h4 class="title font-weight-bold">Género(s)</h4>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <label class="control-label">
+                                                        Género principal <span class="required">*</span>&nbsp;
+                                                        <a class="text-primary" data-toggle="tooltip" data-placement="top" title="No todos los géneros están disponibles en todas las tiendas. Cuando un género que ha seleccionado no existe en una tienda específica, seleccionaremos la alternativa más cercana."><i class="el el-question-sign"></i></a>
+                                                    </label>
+                                                    <select id="w4-genero1" class="form-control" title="Indica este campo" required>
+                                                        <option value="">Selecciona el género...</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <label class="control-label">Género secundario</label>
+                                                    <select id="w4-genero2" class="form-control">
+                                                        <option value="0" selected>Selecciona el género...</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <label class="control-label">
+                                                        Idioma <span class="required">*</span>&nbsp;
+                                                        <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Si sus tracks no tienen letra, puede usar igual esta opción, para dirigirse a un público específico del idioma."><i class="el el-question-sign"></i></a>
+                                                    </label>
+                                                    <select id="w4-idioma" class="form-control" name="idioma" title="Indica este campo" required>
+                                                        @Html.DropDownList("id_language", null, htmlAttributes: new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.id_language, "", new { @class = "text-danger" })
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                            <h4 class="title font-weight-bold">Portada</h4>
+                                            <div class="form-group row">
+                                                <div class="col-xs-12">
+                                                    <div class="thumbnail">
+                                                        <div class="thumb-preview">
+                                                            <div class="mg-thumb-options" id="w4-arteop">
+                                                                <a href="javascript:;" onclick="delete_portada();"><i class="fas fa-trash-alt text-danger pull-right p-1"></i></a>
+                                                            </div>
+                                                            <a id="w4-imgarte-thumb" class="thumb-image" href="">
+                                                                <img id="w4-imgarte" src="~/Content/img/background.jpg" class="img-fluid" alt="Portada">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <button type="button" id="w4-btnportada" style="float:right;background-color:#0088cc;border-color:#0088cc;" class="btn btn-primary mt-2">Subir tu Portada</button>
+                                                <br />
+                                                <br />
+                                                <br />
+                                                Requerimientos de Portada:
+                                                <ul>
+                                                    <li>
+                                                        Formato de archivo debe ser .jpg/.jpeg
+                                                    </li>
+                                                    <li>
+                                                        El archivo no debe pesar más de 10Mb
+                                                    </li>
+                                                    <li>
+                                                        No deben contener direcciones web, logos, o ninguna otra referencia de servicios (ej. facebook)
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="w4-musica" class="tab-pane">
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <h2><span class="lblnombre"></span></h2>
+                                            <div class="form-group row">
+                                                <div class="col-sm-4">
+                                                    <h4>Seleccionar archivo(s)</h4>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-12">
+                                                            @*<span id="musicfupload" class="fileupload btn btn-file btn-primary">
+                                                                    <i class="fa fa-upload" ></i><span> Selecciona tu(s) archivo(s)</span>
+                                                                    <input type="file" id="w4-filemusic" name="filemusic" multiple  accept=".mp3,.wav">
+                                                                </span>*@
+                                                            <button type="button" class="btn btn-file btn-primary" onclick="muscaupload()" id="btnload">Carga tu(s) archivo(s) </button>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-12">
+                                                            <ul>
+                                                                <li>El formato del archivo debe ser <strong>.wav</strong> o <strong>.mp3</strong> (de preferencia .wav)</li>
+                                                                <li>EL tamaño del archivo, no debe ser mayor a 200 MB</li>
+                                                                <li>El número máximo de pistas son 99</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <h4>Lista de canciones</h4>
+                                                    <div class="card-body" style="overflow-x:scroll;">
+                                                        <input id="dgrab" class="form-control" type="hidden" />
+                                                        <table class="table table-bordered table-condensed" id="dt-tracks" style="width:100%; font-size:11px;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th width="1%">#</th>
+                                                                    <th width="10%"> </th>
+                                                                    <th width="28%">Nombre / Derechos de grabación</th>
+                                                                    <th width="25%">Artista(s)</th>
+                                                                    <th width="20%">Copyright/ISRC</th>
+                                                                    <th width="15%" title="Asignar Compositor(es) y/o Productor(es)">Compositor(es)</th>
+                                                                    <th width="1%">Información del track <span class="required">*</span></th>
+                                                                    <th width="1%"></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <div class="checkbox-custom checkbox-default">
+                                                        <input id="w4-chkexplicito" onchange="upchk(1)" name="chkexplicito" type="checkbox" required title="Confirme que su música no contiene palabras malas u obscenidades" />
+                                                        <label>
+                                                            Entiendo que mi lanzamiento puede ser rechazado de las tiendas si no etiqueto correctamente las pistas como explícitas que contienen malas palabras u obscenidades.&nbsp;
+                                                            <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Por favor complete la siguiente lista de verificación antes de continuar. Tenga en cuenta que responder incorrectamente a cualquiera de las siguientes preguntas puede ocasionar demoras en el envío de su música a las plataformas."><i class="el el-question-sign"></i></a>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <div class="checkbox-custom checkbox-default">
+                                                        <input id="w4-chkmimusica" onchange="upchk(2)" name="chkmimusica" type="checkbox" required title="Confirme que posee y está autorizado para vender su música" />
+                                                        <label>
+                                                            Grabé esta música, y estoy autorizado a venderla en tiendas de todo el mundo y cobrar todos los derechos.&nbsp;
+                                                            <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Por favor complete la siguiente lista de verificación antes de continuar. Tenga en cuenta que responder incorrectamente a cualquiera de las siguientes preguntas puede ocasionar demoras en el envío de su música a las plataformas."><i class="el el-question-sign"></i></a>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <div class="checkbox-custom checkbox-default">
+                                                        <input id="w4-chksoyartista" onchange="upchk(3)" name="chksoyartista" type="checkbox" required title="Confirme que no está utilizando el nombre de otro artista, el título de la canción o el título del álbum" />
+                                                        <label>
+                                                            No estoy usando el nombre de ningún otro artista en mi nombre, títulos de canciones o títulos de álbumes sin su aprobación.&nbsp;
+                                                            <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Por favor complete la siguiente lista de verificación antes de continuar. Tenga en cuenta que responder incorrectamente a cualquiera de las siguientes preguntas puede ocasionar demoras en el envío de su música a las plataformas."><i class="el el-question-sign"></i></a>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="w4-fechaterrilanz" class="tab-pane">
+                                    <h2>Plan de Lanzamiento</h2>
+                                    <h4><span class="lblnombre"></span></h4>
+                                    <div class="form-group row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                            <h3>Fecha de Lanzamiento</h3>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <label class="control-label">¿Este álbum o single ha sido lanzado antes?</label>
+                                                    <div class="radio-custom radio-primary">
+                                                        <input id="w4-op1ervez" name="opfechalanz" type="radio" value="1eravez" checked onclick="enable_disable_released()" />
+                                                        <label for="w4-op1ervez">No, esta es la primera vez.</label>
+                                                    </div>
+                                                    <div class="radio-custom radio-primary">
+                                                        <input id="w4-op2davez" name="opfechalanz" type="radio" value="2davez" onclick="enable_disable_released()" />
+                                                        <label for="w4-op2davez">Sí, esto es un relanzamiento.</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row" id="relanz">
+                                                <div class="col-sm-12">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <label class="control-label">Fecha de lanzamiento original</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                @Html.EditorFor(model => model.released_on, new { htmlAttributes = new { @class = "form-control", name="released",id="released",type = "date",disabled=""} })
+                                                                @Html.ValidationMessageFor(model => model.released_on, "", new { @class = "text-danger" })
+                                                                <span class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fas fa-calendar-alt"></i>
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <label class="control-label">
+                                                        ¿Cuándo te gustaría que salga a la venta?&nbsp;
+                                                        <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Su fecha de lanzamiento debe ser al menos 10 días a partir de hoy para que su música vaya a todas las tiendas a la vez."><i class="el el-question-sign"></i></a>
+                                                    </label>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                @*data-date-start-date="+15d"*@
+                                                                @Html.EditorFor(model => model.released_on, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                                                                @Html.ValidationMessageFor(model => model.released_on, "", new { @class = "text-danger" })
+                                                                <span class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fas fa-calendar-alt"></i>
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <label class="control-label">Ingresa tu código de barras si ya tiene uno para esta publicación</label>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            @Html.EditorFor(model => model.upc, new { htmlAttributes = new { @class = "form-control", placeholder = "Código EAN/UCP" } })
+                                                            @Html.ValidationMessageFor(model => model.upc, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                            <h3>Disponabilidad Geografíca</h3>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <label class="control-label">¿Desea agregar restricciones de país y limitar la disponibilidad de su lanzamiento?</label>
+                                                    <div class="radio-custom radio-primary">
+                                                        <input id="w4-opmundial" name="oplanza" type="radio" value="lanzamun" checked onclick="enable_disable_global()"/>
+                                                        <label for="w4-opmundial">Es un lanzamiento mundial.</label>
+                                                    </div>
+                                                    <div class="radio-custom radio-primary">
+                                                        <input id="w4-opregion" name="oplanza" type="radio" value="lanzareg" onclick="enable_disable_global()" />
+                                                        <label for="w4-opregion">Deseo seleccionar territorios.</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                @Html.EditorFor(model => model.released_on, new { htmlAttributes = new { @class = "form-control", name = "global", id = "global", type = "text", disabled = "" } })
+                                                @Html.ValidationMessageFor(model => model.released_on, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group row" id="row-paises">
+                                                <div class="col-sm-12">
+                                                    <ul class="list" style="height:250px;  overflow-y:scroll; list-style-type:none;  border:1px solid lightgray; padding:15px" id="w4-paises">
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div id="w4-confirm" class="tab-pane">
+                                    <h2>Precio de descarga y selección de tiendas</h2>
+                                    <h4><span class="lblnombre"></span></h4>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <h4>
+                                                Precios por canción&nbsp;
+                                                <a class="text-primary" data-toggle="tooltip" data-placement="top" title="En el caso de algunas plataformas que ofrecen descargas (Ej iTunes, Amazon mp3) tienen una gama de precios por tracks que se determinan en bajo, medio o alto. La sugerencia es poner todo en valor medio, ya que la descarga no es un formato que este siendo exitosa en este tiempo."><i class="el el-question-sign"></i></a>
+                                            </h4>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <label class="control-label">¿Cuánto te gustaría cobrar por cada canción? (Ej. iTunes, Amazon)</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-2">
+                                                    @Html.DropDownListFor(model => model.price,
+                                                       new List<SelectListItem> {
+                                                            new SelectListItem { Value = ".69" , Text = "$0.69" },
+                                                            new SelectListItem { Value = ".99" , Text = "$0.99" },
+                                                            new SelectListItem { Value = "1.29" , Text = "$1.29" }
+                                                         },
+                                                       new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-10 ">
+                                            <h4>Tiendas digitales</h4>
+                                            <div id="dt-tiendas">
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <ul class="pager">
+                            <li class="previous disabled">
+                                <a><i class="fas fa-angle-left"></i> Anterior</a>
+                            </li>
+                            <li class="finish hidden float-right">
+                                <a>Terminar</a>
+                            </li>
+                            <li class="next">
+                                <a>Siguiente <i class="fas fa-angle-right"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+
+    <script>
+        function enable_disable_released() {
+            if(document.getElementById('w4-op1ervez').checked) {
+                document.getElementById("released").disabled = true;
+            }else if(document.getElementById('w4-op2davez').checked) {
+                document.getElementById("released").disabled = false;
+            }
+        }
+        function enable_disable_global() {
+            if(document.getElementById('w4-opmundial').checked) {
+                document.getElementById("global").disabled = true;
+            }else if(document.getElementById('w4-opregion').checked) {
+                document.getElementById("global").disabled = false;
+            }
+        }
+    </script>
+}

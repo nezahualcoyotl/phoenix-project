@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54 (76480) - https://sketchapp.com -->
+    <title>instagram</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="19.8416222%" cy="97.3672444%" fx="19.8416222%" fy="97.3672444%" r="128.986178%" id="radialGradient-1">
+            <stop stop-color="#FCEE21" offset="0%"></stop>
+            <stop stop-color="#FBE721" offset="4.431516%"></stop>
+            <stop stop-color="#FAD322" offset="10.99%"></stop>
+            <stop stop-color="#F8B222" offset="18.87%"></stop>
+            <stop stop-color="#F48523" offset="27.69%"></stop>
+            <stop stop-color="#F15A24" offset="35%"></stop>
+            <stop stop-color="#D4145A" offset="50%"></stop>
+            <stop stop-color="#93278F" offset="80%"></stop>
+            <stop stop-color="#93278F" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="instagram" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="instagram-icon-5" transform="translate(5.000000, 5.000000)" fill-rule="nonzero">
+            <path d="M72,90 L18,90 C8.1,90 0,81.9 0,72 L0,18 C0,8.1 8.1,0 18,0 L72,0 C81.9,0 90,8.1 90,18 L90,72 C90,81.9 81.9,90 72,90 Z" id="Path" fill="url(#radialGradient-1)"></path>
+            <path d="M61.33,10 L28.67,10 C18.4,10 10,18.4 10,28.67 L10,61.34 C10,71.6 18.4,80 28.67,80 L61.34,80 C71.6,80 80,71.6 80,61.33 L80,28.67 C80,18.4 71.6,10 61.33,10 Z M74.17,59.39 C74.17,67.52 67.52,74.17 59.39,74.17 L30.61,74.17 C22.48,74.17 15.83,67.52 15.83,59.39 L15.83,30.61 C15.83,22.48 22.48,15.83 30.61,15.83 L59.39,15.83 C67.52,15.83 74.17,22.48 74.17,30.61 L74.17,59.39 Z" id="Shape" fill="#FFFFFF"></path>
+            <path d="M45,25 C33.95,25 25,33.95 25,45 C25,56.05 33.95,65 45,65 C56.05,65 65,56.05 65,45 C65,33.95 56.05,25 45,25 Z M45,57.77 C37.95,57.77 32.23,52.05 32.23,45 C32.23,37.95 37.95,32.23 45,32.23 C52.05,32.23 57.77,37.95 57.77,45 C57.77,52.05 52.05,57.77 45,57.77 Z" id="Shape" fill="#FFFFFF"></path>
+            <circle id="Oval" fill="#FFFFFF" cx="65" cy="25" r="4"></circle>
+        </g>
+    </g>
+</svg>

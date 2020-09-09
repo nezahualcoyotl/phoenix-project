@@ -1,0 +1,156 @@
+﻿<!doctype html>
+<html class="fixed">
+<head>
+
+    <!-- Basic -->
+    <meta charset="UTF-8">
+
+    <title>Backstage Music</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="">
+    <meta name="author" content="okler.net">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    @Styles.Render("~/vendor/css")
+    @Styles.Render("~/datatables/css")
+    @Styles.Render("~/theme/css")
+    @Scripts.Render("~/modernizr/js")
+
+</head>
+<body>
+    <section class="body">
+
+        <!-- start: header -->
+        <header class="header">
+            <div class="logo-container">
+                <a href="@Url.Action("Index", "Home")" class="logo">
+                    <img src="~/Content/img/backstageLogo.png" width="160" height="35" alt="Porto Admin" />
+                </a>
+                <div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+                    <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+                </div>
+            </div>
+
+            <!-- start: search & user box -->
+            <div class="header-right">
+
+                <ul class="notifications">
+                    <li>
+                        <a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge"></span>
+                        </a>
+
+                        <div class="dropdown-menu notification-menu">
+                            <div class="notification-title">
+                                Alerts
+                            </div>
+
+                            <div class="content">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="clearfix">
+                                            <div class="image">
+
+                                            </div>
+                                            <span class="message">No hay notificaciones</span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <hr />
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <span class="separator"></span>
+
+                <div id="userbox" class="userbox">
+                    <a href="#" data-toggle="dropdown">
+                        <figure class="profile-picture">
+                            <!--img src="Content/img/!logged-user.jpg" alt="Joseph Doe" class="rounded-circle" data-lock-picture="Content/img/!logged-user.jpg" />-->
+                        </figure>
+                        <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
+                            <span class="name">@Session["username"].ToString()</span>
+                            <span class="role">@Session["type"].ToString()</span>
+                        </div>
+
+                        <i class="fa custom-caret"></i>
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <ul class="list-unstyled mb-2">
+                            <li>
+                                <a role="menuitem" tabindex="-1" onclick="Logout()"><i class="fas fa-power-off"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end: search & user box -->
+        </header>
+        <!-- end: header -->
+
+        <div class="inner-wrapper">
+            <!-- start: sidebar -->
+            @RenderPage(@Session["menu"].ToString())
+            <!-- end: sidebar -->
+            <section role="main" class="content-body">
+                <header class="page-header">
+                    <h2>@ViewBag.title</h2>
+
+                    <div class="right-wrapper text-right">
+                        <ol class="breadcrumbs">
+                            <li>
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="fas fa-home"></i>
+                                </a>
+                            </li>
+                            <li><span>@ViewBag.description</span></li>
+                            <li><span>@ViewBag.title</span></li>
+                            <li></li>
+                        </ol>
+
+                    </div>
+                </header>
+
+                <!-- start: page -->
+                @RenderBody()
+                <!-- end: page -->
+            </section>
+        </div>
+
+    </section>
+</body>
+</html>
+@Scripts.Render("~/vendor/js")
+@Scripts.Render("~/datatables/js")
+@Scripts.Render("~/theme/js")
+@RenderSection("scripts", required: false)
+<script>
+      function Logout() {
+        $.ajax(
+        {
+          type: "POST",
+          url: '@Url.Action("Logout", "User")',
+          error: function (result) {
+            alert("There is a Problem, Try Again!");
+          },
+          success: function (result) {
+            console.log(result);
+            if (result.status == true) {
+              window.location.href = '@Url.Action("Login", "User")';
+            }
+            else {
+              alert(result.message);
+            }
+          }
+        });
+      }
+</script>

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<BackstageMusic.Models.AssetPlatform>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Asset.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Platform.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.created_at)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.updated_at)
+        </th>
+        <th>Acciones</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Asset.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Platform.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.created_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.updated_at)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_assetplatform }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_assetplatform })
+        </td>
+    </tr>
+}
+
+</table>

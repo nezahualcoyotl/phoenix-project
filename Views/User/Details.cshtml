@@ -1,0 +1,130 @@
+﻿@model BackstageMusic.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Country.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserType.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserType.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.is_suscribed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_suscribed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.is_confirmed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_confirmed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.primary_address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.primary_address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.secondary_address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.secondary_address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zipcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zipcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.voucher)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.voucher)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.created_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.created_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updated_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updated_at)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_user }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

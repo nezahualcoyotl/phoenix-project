@@ -1,0 +1,164 @@
+﻿@model IEnumerable<BackstageMusic.Models.Asset>
+
+@{
+    ViewBag.Title = "Listado de activos";
+    ViewBag.Description = "Activos";
+}
+<div class="row">
+    <div class="col">
+        <section class="card">
+            <header class="card-header">
+                <div class="card-actions">
+                    <a href="/Asset/Create"><button type="button" class="btn btn-primary btn-sm" disabled>Nuevo</button></a>
+                </div>
+                <h2 class="card-title">@ViewBag.Title</h2>
+            </header>
+            <div class="card-body">
+                <table class="table table-bordered table-striped mb-0" id="datatable-tabletools">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Artist.name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AssetType.name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Language.name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OrderDetail.id_orderdetail)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Status.name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.asset_guid)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.copy_holder)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.copy_year)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.image_version)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.upc)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.is_explicit)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.is_debut)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.price)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.received_on)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.approved_on)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.released_on)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.rejected_on)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.active)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.created_at)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.updated_at)
+                            </th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Artist.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AssetType.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Language.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.OrderDetail.id_orderdetail)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.asset_guid)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.copy_holder)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.copy_year)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.image_version)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.upc)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.is_explicit)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.is_debut)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.price)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.received_on)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.approved_on)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.released_on)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.rejected_on)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.active)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.created_at)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.updated_at)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.id_asset }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.id_asset })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>
